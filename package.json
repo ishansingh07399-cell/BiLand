@@ -1,12 +1,17 @@
 {
-  "devDependencies": {
-    "@commitlint/cli": "^19.1.0",
-    "@commitlint/config-conventional": "^19.1.0",
-    "husky": "^9.0.11"
-  },
+  "name": "biland",
+  "version": "1.0.0",
+  "description": "Bihar Culture Landing project! This website celebrates the rich heritage, vibrant culture, and beautiful traditions of Bihar.",
+  "author": "Md Irfan Raj",
+  "license": "",
+  "type": "module",
   "scripts": {
     "prepare": "husky",
     "commitlint": "commitlint --edit"
   },
-  "type": "module"
+  "devDependencies": {
+    "@commitlint/cli": "^19.1.0",
+    "@commitlint/config-conventional": "^19.1.0",
+    "husky": "^9.0.11"
+  }
 }
