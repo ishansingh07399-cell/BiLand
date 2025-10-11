@@ -1,0 +1,52 @@
+[
+  {
+    "id": "q1",
+    "question": "Where did Lord Buddha attain enlightenment?",
+    "options": [
+      { "value": "bodh", "label": "Bodh Gaya" },
+      { "value": "rajgir", "label": "Rajgir" },
+      { "value": "vaishali", "label": "Vaishali" }
+    ],
+    "answer": "bodh"
+  },
+  {
+    "id": "q2",
+    "question": "Which ancient university in Bihar is a UNESCO World Heritage Site?",
+    "options": [
+      { "value": "takshashila", "label": "Takshashila" },
+      { "value": "nalanda", "label": "Nalanda" },
+      { "value": "vikramshila", "label": "Vikramshila" }
+    ],
+    "answer": "nalanda"
+  },
+  {
+    "id": "q3",
+    "question": "The festival where devotees worship the Sun God is:",
+    "options": [
+      { "value": "chhath", "label": "Chhath Puja" },
+      { "value": "holi", "label": "Holi" },
+      { "value": "diwali", "label": "Diwali" }
+    ],
+    "answer": "chhath"
+  },
+  {
+    "id": "q4",
+    "question": "The capital city of Bihar is:",
+    "options": [
+      { "value": "gaya", "label": "Gaya" },
+      { "value": "patna", "label": "Patna" },
+      { "value": "muzaffarpur", "label": "Muzaffarpur" }
+    ],
+    "answer": "patna"
+  },
+  {
+    "id": "q5",
+    "question": "The wildlife reserve in West Champaran is:",
+    "options": [
+      { "value": "valmiki", "label": "Valmiki Tiger Reserve" },
+      { "value": "kuno", "label": "Kuno National Park" },
+      { "value": "kaziranga", "label": "Kaziranga National Park" }
+    ],
+    "answer": "valmiki"
+  }
+]
