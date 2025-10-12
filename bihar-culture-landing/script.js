@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initInteractiveElements();
     initAccessibility();
     initProgressiveEnhancement();
+    initQuiz(); // attach quiz logic if present
 });
 
 // Navigation enhancements
@@ -286,6 +287,74 @@ function initProgressiveEnhancement() {
             }, 0);
         });
     }
+}
+
+// Quiz initialization and logic
+function initQuiz() {
+    const form = document.getElementById('bihar-quiz');
+    if (!form) return;
+    const result = document.getElementById('quiz-result');
+    const container = document.getElementById('quiz-questions');
+    if (!container) return;
+
+    fetch('quiz_questions.json')
+        .then(res => res.json())
+        .then(questions => {
+            renderQuizQuestions(container, questions);
+
+            const answers = Object.fromEntries(questions.map(q => [q.id, q.answer]));
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                let score = 0;
+                for (const [q, correct] of Object.entries(answers)) {
+                    const group = form.elements[q];
+                    if (group && group.value === correct) score++;
+                }
+
+                let message = '';
+                if (score === 5) message = 'Incredible! You’re a Bihar Boss!';
+                else if (score >= 4) message = 'Great job! Bhojpuri Bravo!';
+                else if (score >= 3) message = 'Nice! You’re on the Patna path.';
+                else if (score >= 2) message = 'Not bad! Keep exploring Bihar.';
+                else message = 'Time to tour Bihar’s wonders!';
+
+                if (result) result.textContent = 'You scored ' + score + '/5. ' + message;
+            });
+        })
+        .catch(err => {
+            console.error('Failed to load quiz questions:', err);
+            if (result) result.textContent = 'Unable to load quiz. Please try again later.';
+        });
+
+    form.addEventListener('reset', function () {
+        if (result) result.textContent = '';
+    });
+}
+
+// Render quiz questions dynamically
+function renderQuizQuestions(container, questions) {
+    container.innerHTML = '';
+    questions.forEach((q, qi) => {
+        const fs = document.createElement('fieldset');
+        const legend = document.createElement('legend');
+        legend.textContent = (qi + 1) + ') ' + q.question;
+        fs.appendChild(legend);
+
+        q.options.forEach((opt, oi) => {
+            const label = document.createElement('label');
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = q.id;
+            input.value = opt.value;
+            if (oi === 0) input.required = true; // require a choice per group
+            label.appendChild(input);
+            label.append(' ' + opt.label);
+            fs.appendChild(label);
+        });
+
+        container.appendChild(fs);
+    });
 }
 
 // Utility functions for future enhancements
