@@ -509,3 +509,202 @@ footer {
 .feature-card img:hover {
   transform: scale(1.03);     /* ✅ Adds subtle hover zoom */
 }
+
+
+/* Theme Toggle Button */
+.theme-toggle-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle-btn {
+    background: var(--white);
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.theme-toggle-btn:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.theme-toggle-btn .sun,
+.theme-toggle-btn .moon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Optional: Animate icon swap */
+body.dark-mode .theme-toggle-btn .sun {
+    transform: rotate(180deg) scale(0);
+}
+body.dark-mode .theme-toggle-btn .moon {
+    transform: rotate(360deg) scale(1);
+}
+
+
+/* Locations Grid */
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.location-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.location-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+
+.location-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.location-card p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.map-link {
+  display: inline-block;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.map-link i {
+  margin-right: 5px;
+}
+
+.location-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Quiz Section */
+.quiz-section {
+  background: var(--white);
+  padding: 2rem;
+  margin: 3rem 0;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.quiz-section h2 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.quiz-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.quiz-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.quiz-btn {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  background: var(--primary-color);
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.quiz-btn:hover {
+  background: var(--secondary-color);
+}
+
+.reset-btn {
+  background: var(--light-color);
+  color: var(--text-dark);
+}
+
+.quiz-result {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--accent-color);
+}
+
+
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.location-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.location-card:hover {
+  transform: scale(1.03);
+}
+
+.location-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.map-section h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
+/* Ensure navbar stays above everything */
+.main-navigation {
+  position: sticky; /* or fixed, if you want it always visible */
+  top: 0;
+  z-index: 1000; /* higher than map */
+  background: white; /* so map or content doesn’t show through */
+}
+
+/* Prevent map from overlapping navbar */
+#bihar-map {
+  z-index: 1 !important;
+  position: relative;
+}
